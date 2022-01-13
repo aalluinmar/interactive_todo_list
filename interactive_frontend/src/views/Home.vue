@@ -1,0 +1,43 @@
+<template>
+	<div>
+		<div>
+			<navigation></navigation>
+			<router-view></router-view>
+		</div>
+	</div>
+</template>
+<script>
+import Navigation from './Navigation';
+import { mapState } from 'vuex';
+import { API } from '@/api';
+export default {
+	components: {
+    	Navigation
+	},
+	data() {
+		return {
+			msg: 'I am a Base Component',
+		};
+	},
+	async created() {
+		await API.Interactive.getInteractive().then(res => {
+			this.$store.dispatch('interactive/getAllInteractive')
+			this.$Notice.success({
+				title: 'Interactive Items List',
+				desc: "Items Loaded Successfully."
+			});
+			this.$router.push('/interactive').catch(e => {})
+		}).catch(err => {
+			console.log(err)
+			this.$Notice.error({
+				title: 'Interactive Items List',
+				desc: "Items Initiation Failed."
+			});
+		})
+	},
+	methods: {
+	}
+};
+</script>
+<style lang="stylus" scoped>
+</style>

@@ -12,7 +12,7 @@ class InteractiveTodoList(models.Model):
         Create a Model for the InteractiveTodoList with the set of fields.
     """
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=100, help_text='Name of the Fruit')
+    name = models.CharField(unique=True, max_length=100, help_text='Name of the Fruit')
     price = models.DecimalField(
         max_digits=8, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'))],
         help_text='Price of the Fruit')
