@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "@babel/core": "^7.16.7",
-    "@babel/preset-env": "^7.16.8",
-    "@vue/cli-service": "^3.12.1"
-  }
-}
