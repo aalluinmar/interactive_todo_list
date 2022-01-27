@@ -35,7 +35,7 @@
 					<tr v-for="(item, index) in inventoryDataSearch" :key="index">
 						<td class="text-capitalize">{{item.name}}</td>
 						<td>
-							<div>{{item.price}}</div>
+							<div>${{item.price}}</div>
 						</td>
 						<td>
 							<div>{{item.quantity}}</div>
